@@ -21,8 +21,7 @@ namespace TaskManager.Commands
         {
             TaskAPI.Load(@"D:\Downloads\book1.json");
             try { TaskAPI.AddTaskToGroup(settings.Id, settings.Name); }
-            catch (ArgumentException e) { AnsiConsole.WriteException(e); return -1; }
-            TaskAPI.MarkParent(settings.Id, settings.Name);
+            catch (ArgumentException e) { AnsiConsole.WriteException(e); return -1; }  
             TaskAPI.Save(@"D:\Downloads\book1.json");
             AnsiConsole.MarkupLine($"The [bold green]{settings.Id}[/] is added to [bold aqua]{settings.Name}![/]");
             return 0;

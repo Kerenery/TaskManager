@@ -34,20 +34,15 @@ namespace TaskManager
 
         public static void AddTaskToGroup(int Id, string groupName)
         {
-            if (taskRegistry.GetTask(groupName) is Group group) group.Child.Add(taskRegistry.GetTask(Id));
+            if (taskRegistry.GetTask(groupName) is Group) MarkParent(Id, groupName);
+
         }
 
         public static void DeleteFromGroup(int Id, string groupName)
         {
             if (taskRegistry.GetTask(groupName) is Group group) 
             {
-                foreach (var task in group.Child.ToList()) 
-                {
-                    if(taskRegistry.GetTask(Id).Name == task.Name) 
-                    {
-                        group.Child.Remove(task);
-                    }
-                }
+                group.ChildrenId.Remove(Id);
             }
         }
 
@@ -135,10 +130,6 @@ namespace TaskManager
             return taskRegistry.GetTasks().Where(x => (x.Value is SubTask)).OrderBy(x => (x.Value as SubTask).MarkedAsDone).ToDictionary(x => x.Key, x => x.Value as SubTask);
         }
 
-        //public static List<Task> ListAllChildren(Group group)
-        //{
-        //    return taskRegistry.GetTask(group.Name).Child.Select(x => x as Task).OrderBy(x => x.MarkedAsDone).ToList();
-        //}
         public static List<Task> ListAllChildren(Group group)
         {
             List<Task> list = new();
