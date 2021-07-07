@@ -67,11 +67,6 @@ namespace TaskManager
             if (taskRegistry.GetTask(Id) is Task t)
             {
                 t.MarkedAsDone = true;
-                
-                if (t.ParentExists)
-                {
-                    taskRegistry.GetTask(t.ParentId).Child.Where(x => (x as Task).Name == taskRegistry.GetTask(Id).Name).Select(x => (x as Task).MarkedAsDone = true);
-                }
             }
 
             if (taskRegistry.GetTask(Id) is SubTask st)
@@ -113,6 +108,10 @@ namespace TaskManager
             {
                 t.ParentExists = true; t.ParentId = GetId(Name);
             }
+            if (taskRegistry.GetTask(Name) is Group g)
+            {
+                g.ChildrenId.Add(Id);
+            }
         }
 
         public static bool ParentExists(int Id)
@@ -136,9 +135,22 @@ namespace TaskManager
             return taskRegistry.GetTasks().Where(x => (x.Value is SubTask)).OrderBy(x => (x.Value as SubTask).MarkedAsDone).ToDictionary(x => x.Key, x => x.Value as SubTask);
         }
 
+        //public static List<Task> ListAllChildren(Group group)
+        //{
+        //    return taskRegistry.GetTask(group.Name).Child.Select(x => x as Task).OrderBy(x => x.MarkedAsDone).ToList();
+        //}
         public static List<Task> ListAllChildren(Group group)
         {
-            return taskRegistry.GetTask(group.Name).Child.Select(x => x as Task).OrderBy(x => x.MarkedAsDone).ToList();
+            List<Task> list = new();
+            foreach(int id in group.ChildrenId)
+            {
+                list.Add(taskRegistry.GetTask(id) as Task);
+            }
+            return list.Select(x => x).OrderBy(x => x.MarkedAsDone).ToList();
+        }
+        public static List<int> ListAllChildrenId(Group group)
+        {
+            return group.ChildrenId;
         }
 
         public static void SetParent(int Id, string groupname)

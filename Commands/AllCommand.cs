@@ -81,6 +81,7 @@ namespace TaskManager.Commands
                     {
                         groupnode.AddNode($"[green]id[/]: [underline yellow]{TaskAPI.GetId(child.Name)}[/] [green]Task[/]: [gold1]{child.Name}[/] [green]Deadline:[/] [gold1]{TaskAPI.GetTaskDeadline(TaskAPI.GetId(child.Name))}[/] [green]Completed[/] {(TaskAPI.CompletedTask(TaskAPI.GetId(child.Name)) ? "[green]Yes![/]" : "[red]No[/]!") }");
                     }
+                    
                 }
                 AnsiConsole.Render(tree);
             }
