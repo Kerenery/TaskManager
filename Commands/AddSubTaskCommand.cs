@@ -19,10 +19,11 @@ namespace TaskManager.Commands
         }
         public override int Execute(CommandContext context, AddSubTaskSettings settings)
         {
-            TaskAPI.Load(@"D:\Downloads\book1.json");
-            try { TaskAPI.CreateSubTask(settings.Name, settings.Id); }
+            TaskRegistry taskRegistry = new();
+            taskRegistry.Load(@"D:\Downloads\book1.json");
+            try { taskRegistry.CreateSubTask(settings.Name, settings.Id); }
             catch(ArgumentException e) { AnsiConsole.WriteException(e); return -1; }
-            TaskAPI.Save(@"D:\Downloads\book1.json");
+            taskRegistry.Save(@"D:\Downloads\book1.json");
             AnsiConsole.MarkupLine($"The [bold green]{settings.Name}[/] is added!");
             return 0;
         }

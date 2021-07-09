@@ -19,10 +19,11 @@ namespace TaskManager.Commands
         }
         public override int Execute(CommandContext context, DeadlineSettings settings)
         {
-            TaskAPI.Load(@"D:\Downloads\book1.json");
-            try { TaskAPI.TaskDeadline(settings.Id, settings.Deadline); }
+            TaskRegistry taskRegistry = new();
+            taskRegistry.Load(@"D:\Downloads\book1.json");
+            try { taskRegistry.TaskDeadline(settings.Id, settings.Deadline); }
             catch (ArgumentException e) { AnsiConsole.WriteException(e); return -1; }
-            TaskAPI.Save(@"D:\Downloads\book1.json");
+            taskRegistry.Save(@"D:\Downloads\book1.json");
             AnsiConsole.MarkupLine($"The [bold red] deadline [/] is added!");
             return 0;
         }
