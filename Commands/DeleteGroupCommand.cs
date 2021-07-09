@@ -16,10 +16,11 @@ namespace TaskManager.Commands
 
         public override int Execute(CommandContext context, DeleteGroupSettings settings)
         {
-            TaskAPI.Load(@"D:\Downloads\book1.json");
-            try { TaskAPI.DeleteGroup(settings.Name); }
+            TaskRegistry taskRegistry = new();
+            taskRegistry.Load(@"D:\Downloads\book1.json");
+            try { taskRegistry.DeleteGroup(settings.Name); }
             catch (ArgumentException e) { AnsiConsole.WriteException(e); return -1; }
-            TaskAPI.Save(@"D:\Downloads\book1.json");
+            taskRegistry.Save(@"D:\Downloads\book1.json");
             AnsiConsole.MarkupLine($"[bold]Delete Group =>[/] name[[{settings.Name}]]");
             return 0;
         }
