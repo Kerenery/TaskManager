@@ -15,10 +15,11 @@ namespace TaskManager.Commands
         }
         public override int Execute(CommandContext context, CompleteSettings settings)
         {
-            TaskAPI.Load(@"D:\Downloads\book1.json");
-            try { TaskAPI.CompleteById(settings.Id); }
+            TaskRegistry taskRegistry = new();
+            taskRegistry.Load(@"D:\Downloads\book1.json");
+            try { taskRegistry.CompleteById(settings.Id); }
             catch (ArgumentException e) { AnsiConsole.WriteException(e); return -1; }
-            TaskAPI.Save(@"D:\Downloads\book1.json");
+            taskRegistry.Save(@"D:\Downloads\book1.json");
             AnsiConsole.MarkupLine($"The [bold green]Task =>[/] id[[{settings.Id}]] is completed! Hurray!");
             return 0;
         }
