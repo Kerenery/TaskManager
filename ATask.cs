@@ -8,8 +8,7 @@ namespace TaskManager
         public string Name { get; set; }
         public ITask Parent { get; set; }
         public List<ITask> Child { get; set; } = new();
-
-        public bool MarkedAsDone = false;
+        public bool MarkedAsDone { get; set; }
         public bool IsDone() 
         {
             return MarkedAsDone && Child.All(x => x.IsDone());
