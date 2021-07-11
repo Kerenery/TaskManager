@@ -15,7 +15,12 @@ namespace TaskManager.Commands
 
             t.Load(@"D:\Downloads\book1.json");
 
-            if (t.ListAllTasks().Count != 0)
+            if (t.ListAllTasks().Count == 0)
+            {
+                AnsiConsole.MarkupLine("[red]List of all tasks is empty[/]");
+            }
+
+            else
             {
                 AnsiConsole.WriteLine("1");
                 var table = new Table().Centered();
@@ -74,11 +79,6 @@ namespace TaskManager.Commands
 
                 }
                 AnsiConsole.Render(tree);
-            }
-
-            else
-            {
-                AnsiConsole.MarkupLine("[red]List of all tasks is empty[/]");
             }
 
             return 0;

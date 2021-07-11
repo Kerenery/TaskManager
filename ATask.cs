@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace TaskManager
 {
-    abstract class ATask : ITask
+    public abstract class ATask : ITask
     {
         public string Name { get; set; }
         public ITask Parent { get; set; }
