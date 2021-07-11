@@ -17,6 +17,7 @@ namespace TaskManager.Commands
             [Description("Subtask itself")]
             public string Name { get; set; }
         }
+
         public override int Execute(CommandContext context, AddSubTaskSettings settings)
         {
             TaskRegistry taskRegistry = new();

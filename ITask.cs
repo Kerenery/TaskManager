@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace TaskManager
 { 
-    interface ITask
+    public interface ITask
     {
         string Name { get; set; }
         ITask Parent { get; set; }
