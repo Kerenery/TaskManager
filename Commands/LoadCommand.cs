@@ -15,8 +15,9 @@ namespace TaskManager.Commands
         }
         public override int Execute(CommandContext context, LoadSettings settings)
         {
-            TaskAPI.Load((@$"{settings.Path}"));
-            TaskAPI.Save(@"D:\Downloads\book1.json");
+            TaskRegistry taskRegistry = new();
+            taskRegistry.Load((@$"{settings.Path}"));
+            taskRegistry.Save(@"D:\Downloads\book1.json");
             AnsiConsole.MarkupLine($"The [bold green]File[/] is saved! Hurray!");
             return 0;
         }

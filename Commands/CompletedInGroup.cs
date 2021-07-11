@@ -17,22 +17,25 @@ namespace TaskManager.Commands
         }
         public override int Execute(CommandContext context, CompletedInGroupSettings settings)
         {
-            TaskAPI.Load(@"D:\Downloads\book1.json");
-            if (TaskAPI.ListAllTasks().Count != 0)
+            TaskRegistry taskRegistry = new();
+            taskRegistry.Load(@"D:\Downloads\book1.json");
+            if (taskRegistry.ListAllTasks().Count != 0)
             {
                 var tree = new Tree($"[gold1]{settings.Name}[/]")
                  .Style(Style.Parse("aqua"))
                  .Guide(TreeGuide.BoldLine);
 
-                foreach (var kvp in TaskAPI.ListAllTasks())
+                foreach (var kvp in taskRegistry.ListAllGroups())
                 {
-                    if (kvp.Value is Group && kvp.Value.Name == settings.Name)
+                    if (kvp.Value.Name == settings.Name)
                     {
-                        foreach (var child in kvp.Value.Child)
+                        foreach (var child in taskRegistry.ListAllChildren(kvp.Value))
                         {
-                            if (TaskAPI.CompletedTask(TaskAPI.GetId(child.Name)))
+                            if (taskRegistry.IsTaskDone(taskRegistry.GetId(child.Name)))
                             {
-                                tree.AddNode($"[green]id[/]: [underline yellow]{TaskAPI.GetId(child.Name)}[/] [green]Task[/]: [gold1]{child.Name}[/] [green]Deadline:[/] [gold1]{TaskAPI.GetTaskDeadline(TaskAPI.GetId(child.Name))}[/] [green]Completed[/] {(TaskAPI.CompletedTask(TaskAPI.GetId(child.Name)) ? "[green]Yes![/]" : "[red]No[/]!") }");
+                                tree.AddNode($"[green]id[/]: [underline yellow]{ taskRegistry.GetId(child.Name)}[/] [green]Task[/]: [gold1]{child.Name}[/]" +
+                                    $" [green]Deadline:[/] [gold1]{ taskRegistry.GetTaskDeadline(taskRegistry.GetId(child.Name))}[/] " +
+                                    $"[green]Completed[/] {(taskRegistry.IsTaskDone(taskRegistry.GetId(child.Name)) ? "[green]Yes![/]" : "[red]No[/]!") }");
                             }
                         }
                     }

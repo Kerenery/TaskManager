@@ -19,12 +19,13 @@ namespace TaskManager.Commands
         }
         public override int Execute(CommandContext context, DeleteTaskFromGroupSettings settings)
         {
-            TaskAPI.Load(@"D:\Downloads\book1.json");
-            try { TaskAPI.DeleteFromGroup(settings.Id, settings.Name); }
+            TaskRegistry taskRegistry = new();
+            taskRegistry.Load(@"D:\Downloads\book1.json");
+            try { taskRegistry.DeleteFromGroup(settings.Id, settings.Name); }
             catch (ArgumentException e) { AnsiConsole.WriteException(e); return -1; }
-            try { TaskAPI.DeleteTask(settings.Id); }
+            try { taskRegistry.DeleteTask(settings.Id); }
             catch (ArgumentException e) { AnsiConsole.WriteException(e); return -1; }
-            TaskAPI.Save(@"D:\Downloads\book1.json");
+            taskRegistry.Save(@"D:\Downloads\book1.json");
             AnsiConsole.MarkupLine($"The [bold green]{settings.Id}[/] is deleted from [bold aqua]{settings.Name}![/]");
             return 0;
         }
