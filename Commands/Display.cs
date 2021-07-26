@@ -18,7 +18,7 @@ namespace TaskManager.Commands
                 foreach (var child in taskRegistry.ListAllChildren(kvp.Value))
                 {
                     groupnode.AddNode($"[green]id[/]: [underline yellow]{taskRegistry.GetId(child.Name)}[/] [green]Task[/]: [gold1]{child.Name}[/]" +
-                        $" [green]Deadline:[/] [gold1]{taskRegistry.GetTaskDeadline(taskRegistry.GetId(child.Name))}[/] " +
+                        $" [green]Deadline:[/] [gold1]{taskRegistry.GetTaskDeadline(taskRegistry.GetId(child.Name)):hh:mm:ss}[/] " +
                         $"[green]Completed[/] {(taskRegistry.IsTaskDone(taskRegistry.GetId(child.Name)) ? "[green]Yes![/]" : "[red]No[/]!") }");
                 }
 
