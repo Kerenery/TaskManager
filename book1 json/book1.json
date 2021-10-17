@@ -1,0 +1,237 @@
+{
+  "1": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": true,
+    "Deadline": "2021-07-02T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "Ambassador",
+    "Parent": null,
+    "Child": []
+  },
+  "2": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": true,
+    "Deadline": "2021-07-05T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "Я хочу питсы",
+    "Parent": null,
+    "Child": []
+  },
+  "5": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": true,
+    "Deadline": "2021-07-05T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "Task",
+    "Parent": null,
+    "Child": [
+      {
+        "$type": "TaskManager.SubTask, TaskManager",
+        "MarkedAsDone": false,
+        "ParentExists": true,
+        "ParentId": 5,
+        "Name": "kereneri k5n",
+        "Parent": null,
+        "Child": []
+      },
+      {
+        "$type": "TaskManager.SubTask, TaskManager",
+        "MarkedAsDone": false,
+        "ParentExists": true,
+        "ParentId": 5,
+        "Name": "kereneri",
+        "Parent": null,
+        "Child": []
+      }
+    ]
+  },
+  "7": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": true,
+    "Deadline": "2021-07-05T00:00:00+03:00",
+    "ParentExists": false,
+    "ParentId": 0,
+    "Name": "Task2",
+    "Parent": null,
+    "Child": []
+  },
+  "8": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": true,
+    "Deadline": "2021-07-05T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "Task3",
+    "Parent": null,
+    "Child": []
+  },
+  "10": {
+    "$type": "TaskManager.SubTask, TaskManager",
+    "MarkedAsDone": true,
+    "ParentExists": true,
+    "ParentId": 5,
+    "Name": "kereneri k5n",
+    "Parent": null,
+    "Child": []
+  },
+  "11": {
+    "$type": "TaskManager.SubTask, TaskManager",
+    "MarkedAsDone": false,
+    "ParentExists": true,
+    "ParentId": 5,
+    "Name": "kereneri",
+    "Parent": null,
+    "Child": []
+  },
+  "12": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": true,
+    "Deadline": "2021-07-06T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "kola s",
+    "Parent": null,
+    "Child": []
+  },
+  "13": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": false,
+    "Deadline": "2021-07-06T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "kola s1",
+    "Parent": null,
+    "Child": []
+  },
+  "14": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": true,
+    "Deadline": "2021-07-06T00:00:00+03:00",
+    "ParentExists": false,
+    "ParentId": 0,
+    "Name": "baba",
+    "Parent": null,
+    "Child": [
+      {
+        "$type": "TaskManager.SubTask, TaskManager",
+        "MarkedAsDone": false,
+        "ParentExists": true,
+        "ParentId": 14,
+        "Name": "под майку",
+        "Parent": null,
+        "Child": []
+      },
+      {
+        "$type": "TaskManager.SubTask, TaskManager",
+        "MarkedAsDone": false,
+        "ParentExists": true,
+        "ParentId": 14,
+        "Name": "под майку2",
+        "Parent": null,
+        "Child": []
+      }
+    ]
+  },
+  "16": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": true,
+    "Deadline": "2021-07-06T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "baba2",
+    "Parent": null,
+    "Child": []
+  },
+  "17": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": false,
+    "Deadline": "2021-07-06T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "mak",
+    "Parent": null,
+    "Child": []
+  },
+  "19": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": false,
+    "Deadline": "2021-07-07T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "asd",
+    "Parent": null,
+    "Child": []
+  },
+  "20": {
+    "$type": "TaskManager.Group, TaskManager",
+    "Name": "b",
+    "Parent": null,
+    "Child": [],
+    "ChildrenId": [
+      21,
+      22,
+      23
+    ]
+  },
+  "21": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": false,
+    "Deadline": "2021-07-07T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "b1",
+    "Parent": null,
+    "Child": []
+  },
+  "22": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": true,
+    "Deadline": "2021-07-07T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "b2",
+    "Parent": null,
+    "Child": []
+  },
+  "23": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": false,
+    "Deadline": "2021-07-07T00:00:00+03:00",
+    "ParentExists": true,
+    "ParentId": 0,
+    "Name": "b3",
+    "Parent": null,
+    "Child": []
+  },
+  "24": {
+    "$type": "TaskManager.SubTask, TaskManager",
+    "MarkedAsDone": true,
+    "ParentExists": true,
+    "ParentId": 14,
+    "Name": "под майку",
+    "Parent": null,
+    "Child": []
+  },
+  "25": {
+    "$type": "TaskManager.SubTask, TaskManager",
+    "MarkedAsDone": false,
+    "ParentExists": true,
+    "ParentId": 14,
+    "Name": "под майку2",
+    "Parent": null,
+    "Child": []
+  },
+  "26": {
+    "$type": "TaskManager.Task, TaskManager",
+    "MarkedAsDone": false,
+    "Deadline": "2021-07-07T00:00:00+03:00",
+    "ParentExists": false,
+    "ParentId": 0,
+    "Name": "Дождь в окно постучит, это я",
+    "Parent": null,
+    "Child": []
+  }
+}
